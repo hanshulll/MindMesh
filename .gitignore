@@ -1,2 +1,5 @@
+# Ignore target directory
 .idea/
+/target/
+
 
