@@ -27,7 +27,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
-    private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder(12);
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public ResponseEntity<MindMeshResponse> createUser(CreateUserRequestDto createUserRequestDto) {
         log.info("Inside UserService, createUser : {}", createUserRequestDto.getEmail());

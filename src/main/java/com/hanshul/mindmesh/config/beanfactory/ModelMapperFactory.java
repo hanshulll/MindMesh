@@ -1,4 +1,4 @@
-package com.hanshul.mindmesh.config.BeanFactory;
+package com.hanshul.mindmesh.config.beanfactory;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;

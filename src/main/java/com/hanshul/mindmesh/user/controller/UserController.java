@@ -6,6 +6,7 @@ import com.hanshul.mindmesh.user.model.dto.request.CreateUserRequestDto;
 import com.hanshul.mindmesh.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.ui.Model;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequiredArgsConstructor
-@CrossOrigin
 public class UserController {
 
     private final UserService userService;
@@ -26,6 +26,13 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<MindMeshResponse> createUser(@RequestBody CreateUserRequestDto createUserRequestDto) {
         return userService.createUser(createUserRequestDto);
+    }
+
+    @GetMapping("/fetch")
+    public ResponseEntity<MindMeshResponse> get() {
+        return new ResponseEntity<>(MindMeshResponse.builder()
+                .isSuccess(true)
+                .build(), HttpStatus.OK);
     }
 
 }
